@@ -1,67 +1,24 @@
-# Image Classification with Random Forest and SVM
-
-## Project Overview
-This project builds an image classification system using a small public image dataset stored in `images.zip`. The dataset contains five classes:
-
-- dalmatian
-- dollar_bill
-- pizza
-- soccer_ball
-- sunflower
-
-The workflow includes:
-- loading image files
-- resizing images to a uniform size
-- normalizing pixel values
-- splitting the dataset into training and testing sets
-- training a Random Forest model with `GridSearchCV`
-- evaluating the model using accuracy, precision, recall, and F1-score
-- visualizing a confusion matrix
-- visualizing feature importance
-- predicting the class of a new image
-- comparing Random Forest with SVM
-
-## Files in this repository
-- `image_classification_project.ipynb` - Google Colab notebook
-- `report.pdf` - concise project report
-- `report.docx` - editable version of the report
-- `images.zip` - dataset
-- `plots/` - generated figures used in the report
-
-## Dataset
-The dataset is a folder-based image dataset packaged as `images.zip`.  
-Each class is stored in its own folder inside `images/`.
-
-## Preprocessing
-The notebook performs the following preprocessing steps:
-1. Extracts the zip file
-2. Loads images from class folders
-3. Converts images to grayscale
-4. Resizes images to 16 x 16 pixels
-5. Normalizes pixel values to the range [0, 1]
-6. Flattens each image into a feature vector
-7. Splits the data into training and testing sets
-
-## Models Used
-### Random Forest
-The Random Forest model is tuned with `GridSearchCV` using:
-- `n_estimators`
-- `max_depth`
-- `min_samples_split`
-- `min_samples_leaf`
-
-**Best parameters found**
-```python
-{'max_depth': None, 'min_samples_leaf': 1, 'min_samples_split': 5, 'n_estimators': 100}
-```
-
-### Support Vector Machine (Bonus)
-The SVM model is also tuned with `GridSearchCV`.
-
-**Best parameters found**
-```python
-{'C': 10, 'gamma': 'scale', 'kernel': 'rbf'}
-```
+What I Did
+1. Preprocessing
+Loaded the images
+Resized them to a consistent size
+Normalized pixel values
+Split data into training and testing sets
+2. Model Training
+Used Random Forest with GridSearchCV to find the best parameters
+Trained the model using the best settings
+3. Model Evaluation
+Measured:
+Accuracy
+Precision
+Recall
+F1-score
+Created a confusion matrix to see where the model made mistakes
+4. Feature Importance
+Visualized which pixels were most important for predictions
+5. SVM Comparison (Bonus)
+Trained an SVM model
+Compared results with Random Fores
 
 ## Results
 ### Random Forest
@@ -91,5 +48,3 @@ A practical deployment strategy would be:
 - return the predicted class label
 - deploy on a cloud platform such as Azure, AWS, or Google Cloud
 
-## Author Notes
-This project was designed to satisfy a standard image classification assignment in a simple and readable way using plain Python, scikit-learn, and matplotlib.
